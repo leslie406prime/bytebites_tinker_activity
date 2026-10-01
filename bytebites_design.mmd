@@ -1,0 +1,30 @@
+classDiagram
+  class Customer {
+    +String name
+    +list purchase_history
+    +add_purchase(transaction)
+  }
+
+  class MenuItem {
+    +String name
+    +float price
+    +String category
+    +float popularity_rating
+  }
+
+  class Menu {
+    +list items
+    +add_item(item)
+    +filter_by_category(category) list
+    +sort_by_popularity(descending) list
+  }
+
+  class Transaction {
+    +list selected_items
+    +add_item(item)
+    +calculate_total() float
+  }
+
+  Menu --> MenuItem
+  Transaction --> MenuItem
+  Customer --> Transaction
